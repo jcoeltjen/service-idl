@@ -11,6 +11,8 @@ import org.eclipse.core.runtime.Path
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.eclipse.xtext.generator.IFileSystemAccess
 
+import static extension com.btc.serviceidl.util.Util.*
+
 @Accessors(NONE)
 class CMakeTopLevelProjectFileGenerator
 {
@@ -76,7 +78,7 @@ class CMakeTopLevelProjectFileGenerator
             
             class Conan(ConanTemplate):
                 name = "«projectName»"
-                version= version_name("0.1.0-unreleased")
+                version= version_name("«module.resolveVersion»-unreleased") «««TODO Are there cases where this should be not unreleased?»»»
                 url = "TODO"
                 description = """
                 TODO
